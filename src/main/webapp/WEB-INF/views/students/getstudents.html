@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Head html</title>
@@ -20,26 +20,20 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>ID</th>
+                <th>Name</th>
                 <th>Email</th>
+                <th>Course</th>
+                <th>Age</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody th: each="student : ${students}">
             <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
+                <td th:text="${student.id}"></td>
+                <td th:text="{student.getName()}"></td>
+                <td th:text="{student.getEmail()}"></td>
+                <td th:text="{student.getCourse()}"></td>
+                <td th:text="{student.getAge()}"></td>
             </tr>
             </tbody>
         </table>
