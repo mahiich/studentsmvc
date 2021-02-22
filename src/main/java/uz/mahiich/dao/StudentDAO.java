@@ -32,6 +32,18 @@ public class StudentDAO {
                 student.getName(),student.getEmail(),student.getCourse(),student.getAge(), new BeanPropertyRowMapper<>(Student.class));
     }
 
+    public String editStudent(int id){
+        Student student = new Student();
+        jdbcTemplate.update("UPDATE students SET name=?, email=?, course=?, age=? WHERE id=?",
+                student.getName(),student.getEmail(),student.getCourse(),student.getAge(), student.getId(), new BeanPropertyRowMapper<>(Student.class));
+
+    }
+
+    public String deleteStudent(int id){
+        jdbcTemplate.update("DELETE FROM students WHERE id=?",id);
+        return "redirect:/students/getstudents";
+    }
+
 
 
 }

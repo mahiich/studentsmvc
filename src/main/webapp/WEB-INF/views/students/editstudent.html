@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:>
+<head>
+    <meta charset="UTF-8">
+    <title>New student</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+</head>
+<body>
+<div class="container p-2">
+    <div class="row text-center">
+        <div class="col-12 text-center">
+            <h1 class="text-center text-primary p-5">New student:</h1>
+        </div>
+    </div>
+    <div class="row bg-white">
+        <div class="col-12">
+            <form method="POST">
+
+                <input type="hidden" name="id" value=""><br>
+
+                <label for="fname">Name:</label><br>
+                <input type="text" id="fname" autofocus required name="name" value=""><br>
+
+                <label for="femail">Email:</label><br>
+                <input type="email" id="femail" required name="email" value=""><br>
+
+                <label for="fcourse">Course:</label><br>
+                <input type="number" id="fcourse" required name="course" value=""><br>
+
+                <label for="fage">Age:</label><br>
+                <input type="number" id="fage" required name="age" value=""><br>
+
+                <input id="submitbutton" type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-warning text-center m-auto w-25" href="newstudent.html">Reload form<i class="bi bi-arrow-counterclockwise"></i></a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

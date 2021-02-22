@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:>
 <head>
     <meta charset="UTF-8">
     <title>Head html</title>
+<!--    <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>-->
+<!--    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
+<!--    <link th:rel="stylesheet" th:href="@{bootstrap.css}">-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
 </head>
 <body>
-<div class="container p-2 m-2 bg-info">
+<div class="container p-2">
     <div class="row text-center">
         <div class="col-12 text-center">
             <h1 class="text-center text-info">Students list</h1>
         </div>
     </div>
-    <div class="row">
+    <div class="row bg-white">
+        <div class="col-4"></div>
+        <div class="col-4 p-2">
+            <a class="btn btn- ml-1 btn-primary" href="/students/addstudent">Add new student</a>
+        </div>
         <div class="col-4">
-
+            <nav class="navbar navbar-expand-sm navbar-dark align-end">
+                <form class="form-inline" action="/students/search">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </nav>
         </div>
     </div>
     <div class="row">
-        <table class="table table-striped">
-            <thead>
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="bg-warning">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -27,17 +43,25 @@
                 <th>Age</th>
             </tr>
             </thead>
-            <tbody th: each="student : ${students}">
+            <tbody th:each="student : ${students}">
             <tr>
                 <td th:text="${student.id}"></td>
-                <td th:text="{student.getName()}"></td>
-                <td th:text="{student.getEmail()}"></td>
-                <td th:text="{student.getCourse()}"></td>
-                <td th:text="{student.getAge()}"></td>
+                <td th:text="${student.name}"></td> <!--todo th:href="@{/students/{id}(id=${student.getId()})}-->
+                <td th:text="${student.email}"></td>
+                <td th:text="${student.course}"></td>
+                <td th:text="${student.age}"></td>
+                <td class="text-center"><a class="btn btn-success" th:href="@{/students/{id}/edit(id=${student.getId()})}">Edit</a>
+                    <a class="btn btn-danger ml-1" th:href="@{/students/{id}/delete(id=${student.getId()})}">Delete</a></td>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
+
+<!--<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>-->
+<!--<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>-->
+<!--<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>-->
 </body>
 </html>
